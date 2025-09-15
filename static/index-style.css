@@ -1,9 +1,19 @@
 .header{
     border-color:aqua;
     border-radius:100px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 .slogan{
     font-size:1em;
     color:blue;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     
+}
+
+.quiz1{
+
 }
