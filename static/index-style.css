@@ -14,6 +14,17 @@
     
 }
 
+.quizzes-list{
+    list-style-type: square;
+    font-size: 1em;
+    max-width: fit-content;
+    margin-left: center;
+}
+
 .quiz1{
+    border-color: black;
+    border-radius: 50px;
+    max-width: fit-content;
+    margin
 
 }
