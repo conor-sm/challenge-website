@@ -1,5 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: rgb(46, 46, 46);
+    height: 100vh;
+}
+
+.top{
+    margin: 10px;
+    padding: 10px;
+    
+}
 .header{
-    border-color:aqua;
+    border-color:rgba(0, 255, 0, 0.458);
+    color:rgba(0, 255, 0, 0.458);
     border-radius:100px;
     max-width: fit-content;
     margin-left: auto;
@@ -7,24 +21,51 @@
 }
 .slogan{
     font-size:1em;
-    color:blue;
+    color:rgba(0, 255, 0, 0.458);
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
     
 }
-
 .quizzes-list{
-    list-style-type: square;
-    font-size: 1em;
+    margin: 0 auto;
     max-width: fit-content;
-    margin-left: center;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.quiz1, .quiz2, .quiz3, .quiz4, .quiz5, .quiz6, .quiz7, .quiz8, .quiz9{
+    color:black;
+    border-color: rgba(0, 255, 0, 0.458);
+    text-align: center;
+    background: white;
+    border: 2px solid rgba(0, 255, 0, 0.458);
+    border-radius: 12px;
+    margin: 10px 0;
+    padding: 5px;
+    box-shadow: 2px 2px 8px rgba(rgba(0, 255, 0, 0.458));
+    transition:
+        background 0.12s,
+        color 0.12s;
 }
 
-.quiz1{
-    border-color: black;
-    border-radius: 50px;
-    max-width: fit-content;
-    margin
+.quiz1:hover, .quiz2:hover, .quiz3:hover, .quiz4:hover, .quiz5:hover, .quiz6:hover, .quiz7:hover, .quiz8:hover, .quiz9:hover{
+    transform: scale(1.03);
+    background: rgba(0, 255, 0, 0.458);
+    color: black;
+    cursor: pointer;
+}
 
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+a:hover {
+    text-decoration: underline;
 }
