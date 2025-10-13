@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz-Quest Home</title>
-  <link rel="stylesheet" href="/static/faq.css">
   <style>
     html {
       transition: background 1.6s, color 1.5s;
     }
+
     html.dark-mode-transition {
       transition: background 2.6s, color 2.5s;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       color: #393939;
       margin: 0;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
     html.dark-mode body {
       background: #121212;
       color: rgba(0, 225, 0, 0.8);
@@ -62,11 +68,19 @@
       color: rgba(0, 225, 0, 0.6);
     }
 
+    .quizzes-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
     .quizzes-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       margin-top: 30px;
+      max-width: 1000px;
+      width: 100%;
     }
 
     .quizzes-list a {
@@ -76,6 +90,7 @@
     }
 
     .quizzes-list a div {
+      margin: 0 auto;
       background: #ffffff;
       border-radius: 10px;
       padding: 20px;
@@ -104,6 +119,9 @@
       border-radius: 10px;
       background: #ffffff;
       box-shadow: 0 2px 6px rgba(0,225,0.458);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
     }
 
     html.dark-mode .faq-section {
@@ -112,7 +130,6 @@
     }
 
     .faq-section h1 {
-      text-align: center;
       margin-bottom: 30px;
     }
 
@@ -131,6 +148,7 @@
     }
   </style>
 </head>
+
 <body>
   <button onclick="toggleDarkMode()" id="darkModeToggle">Toggle Dark Mode</button>
 
@@ -139,15 +157,17 @@
     <div class="slogan"><h1>Level up your problem solving skills...</h1></div>
   </div>
 
-  <div class="quizzes-list">
-    <a href="math quiz.html" class="quiz1"><div><h2>Maths Quiz</h2></div></a>
-    <a href="physics quiz.html" class="quiz2"><div><h2>Physics Quiz</h2></div></a>
-    <a href="biolagy.html" class="quiz3"><div><h2>Biology Quiz</h2></div></a>
-    <a href="geography.html" class="quiz4"><div><h2>Geography Quiz</h2></div></a>
-    <a href="quiz5.html" class="quiz5"><div><h2>Quiz 5</h2></div></a>
-    <a href="quiz6.html" class="quiz6"><div><h2>Quiz 6</h2></div></a>
-    <a href="quiz7.html" class="quiz7"><div><h2>Quiz 7</h2></div></a>
-    <a href="quiz8.html" class="quiz8"><div><h2>Quiz 8</h2></div></a>
+  <div class="quizzes-container">
+    <div class="quizzes-list">
+      <a href="math quiz.html" class="quiz1"><div><h2>Maths Quiz</h2></div></a>
+      <a href="physics quiz.html" class="quiz2"><div><h2>Physics Quiz</h2></div></a>
+      <a href="biolagy.html" class="quiz3"><div><h2>Biology Quiz</h2></div></a>
+      <a href="geography.html" class="quiz4"><div><h2>Geography Quiz</h2></div></a>
+      <a href="quiz5.html" class="quiz5"><div><h2>Quiz 5</h2></div></a>
+      <a href="quiz6.html" class="quiz6"><div><h2>Quiz 6</h2></div></a>
+      <a href="quiz7.html" class="quiz7"><div><h2>Quiz 7</h2></div></a>
+      <a href="quiz8.html" class="quiz8"><div><h2>Quiz 8</h2></div></a>
+    </div>
   </div>
 
   <div class="faq-section container">
