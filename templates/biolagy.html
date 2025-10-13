@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>biology Quiz Year 11</title>
+  <title>Year 11 Biology Quiz – Non-Calculator</title>
   <style>
+    html {
+      transition: background 1.6s, color 1.5s;
+    }
+    html.dark-mode-transition {
+      transition: background 2.6s, color 2.5s;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       color: #393939;
       margin: 0;
       padding: 20px;
-      transition: background 0.6s, color 0.5s;
     }
-
-    .dark-mode {
+    html.dark-mode body {
       background: #121212;
-      color: rgba(0,225,0.458);
+      color: rgba(0, 225, 0, 0.8);
     }
-
     .container {
       max-width: 700px;
       margin: auto;
     }
-
     .toggle-btn {
       background: rgba(0,225,0.458);
       color: rgb(0, 0, 0);
@@ -33,43 +35,55 @@
       cursor: pointer;
       margin-bottom: 20px;
     }
-
-    .toggle-btn:hover {
-      background: #089e00;
+    html.dark-mode .toggle-btn {
+      background: rgba(0,255,0,0.6);
+      color: #000;
     }
-
     .quiz-container {
       background: #fff;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,225,0.458);
+      transition: background 1.3s ease;
     }
-
-    .dark-mode .quiz-container {
+    html.dark-mode .quiz-container {
       background: #1e1e1e;
       box-shadow: none;
     }
-
     h2 {
       text-align: center;
       margin-bottom: 30px;
     }
-
     .question {
-      margin-bottom: 25px;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,225,0.458);
+      transition: background 1.3s ease;
     }
-
+    html.dark-mode .question {
+      background: #2a2a2a;
+    }
+    .question:hover {
+      transform: scale(1.01);
+    }
     .question p {
       font-weight: bold;
+      font-size: 18px;
       margin-bottom: 10px;
     }
-
     .question label {
       display: block;
       margin: 5px 0;
       cursor: pointer;
     }
-
+    html.dark-mode label {
+      color: rgba(0, 225, 0, 0.8);
+    }
+    input[type="radio"] {
+      accent-color: rgba(0,225,0.458);
+    }
     #submit-btn {
       display: block;
       width: 100%;
@@ -81,93 +95,124 @@
       border-radius: 6px;
       cursor: pointer;
     }
-
+    html.dark-mode #submit-btn {
+      background: rgba(0,255,0,0.6);
+      color: #000;
+    }
     #submit-btn:hover {
       background: #218838;
     }
-
     #result {
       margin-top: 20px;
       font-size: 20px;
       text-align: center;
       font-weight: bold;
+      background: #e0ffe0;
+      padding: 15px;
+      border-radius: 8px;
+      color: #2c662d;
+      animation: fadeIn 1.6s ease-in-out;
     }
-
-    .question p {
-  font-size: 18px; 
-  }
+    html.dark-mode #result {
+      background: #1f3d1f;
+      color: #aaffaa;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #progress-bar {
+      height: 8px;
+      background: #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: rgba(0,225,0.458);
+      border-radius: 4px;
+      transition: width 1.5s ease;
+    }
+    html.dark-mode #progress-bar {
+      background: #333;
+    }
+    html.dark-mode #progress {
+      background: rgba(0,255,0.6);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-
+    <div id="progress-bar"><div id="progress"></div></div>
     <div class="quiz-container">
-      <h2>biology Quiz Year 11</h2>
+      <h2>Year 11 Biology Quiz – Non-Calculator</h2>
       <form id="quiz-form">
 
         <div class="question">
-          <p>1. what organelle do plant cells have but animal cells dont</p>
-          <label><input type="radio" name="q1" value="A" /> A) ribosones</label>
-          <label><input type="radio" name="q1" value="B" /> B) mitocondria</label>
-          <label><input type="radio" name="q1" value="C" /> C) cell wall</label>
-          <label><input type="radio" name="q1" value="D" /> D) nucleus</label>
+          <p>1. What is the function of mitochondria?</p>
+          <label><input type="radio" name="q1" value="A" /> A) Protein synthesis</label>
+          <label><input type="radio" name="q1" value="B" /> B) Energy release</label>
+          <label><input type="radio" name="q1" value="C" /> C) Cell division</label>
+          <label><input type="radio" name="q1" value="D" /> D) Digestion</label>
         </div>
 
         <div class="question">
-          <p>2. what is the smallest type of cell</p>
-          <label><input type="radio" name="q2" value="A" /> A) fungi</label>
-          <label><input type="radio" name="q2" value="B" /> B) plant</label>
-          <label><input type="radio" name="q2" value="C" /> C) animal</label>
-          <label><input type="radio" name="q2" value="D" /> D) bacterial</label>
+          <p>2. Which enzyme breaks down starch?</p>
+          <label><input type="radio" name="q2" value="A" /> A) Protease</label>
+          <label><input type="radio" name="q2" value="B" /> B) Lipase</label>
+          <label><input type="radio" name="q2" value="C" /> C) Amylase</label>
+          <label><input type="radio" name="q2" value="D" /> D) Lactase</label>
         </div>
 
         <div class="question">
-          <p>3. what are the two base pairs of DNA</p>
-          <label><input type="radio" name="q3" value="A" /> A) a-t and c-g</label>
-          <label><input type="radio" name="q3" value="B" /> B) a-g and c-t</label>
-          <label><input type="radio" name="q3" value="C" /> C) q-w and e-r</label>
-          <label><input type="radio" name="q3" value="D" /> D) h-l and f-g</label>
+          <p>3. What is the genetic material found in the nucleus?</p>
+          <label><input type="radio" name="q3" value="A" /> A) RNA</label>
+          <label><input type="radio" name="q3" value="B" /> B) DNA</label>
+          <label><input type="radio" name="q3" value="C" /> C) Protein</label>
+          <label><input type="radio" name="q3" value="D" /> D) Glucose</label>
         </div>
 
         <div class="question">
-          <p>4. what do bacterial cells use to move</p>
-          <label><input type="radio" name="q4" value="A" /> A) mitocondria</label>
-          <label><input type="radio" name="q4" value="B" /> B) ribosones</label>
-          <label><input type="radio" name="q4" value="C" /> C) plasmid</label>
-          <label><input type="radio" name="q4" value="D" /> D) flagellum</label>
+          <p>4. Which organ is responsible for filtering blood?</p>
+          <label><input type="radio" name="q4" value="A" /> A) Liver</label>
+          <label><input type="radio" name="q4" value="B" /> B) Kidney</label>
+          <label><input type="radio" name="q4" value="C" /> C) Heart</label>
+          <label><input type="radio" name="q4" value="D" /> D) Lung</label>
         </div>
 
         <div class="question">
-          <p>5. what does DNA code for</p>
-          <label><input type="radio" name="q5" value="A" /> A) a ribosone</label>
-          <label><input type="radio" name="q5" value="B" /> B) a protein</label>
-          <label><input type="radio" name="q5" value="C" /> C) a gene</label>
-          <label><input type="radio" name="q5" value="D" /> D) a plasmid</label>
+          <p>5. What is the role of white blood cells?</p>
+          <label><input type="radio" name="q5" value="A" /> A) Carry oxygen</label>
+          <label><input type="radio" name="q5" value="B" /> B) Fight infection</label>
+          <label><input type="radio" name="q5" value="C" /> C) Clot blood</label>
+          <label><input type="radio" name="q5" value="D" /> D) Transport nutrients</label>
         </div>
 
         <div class="question">
-          <p>6. which cell have a vacoule</p>
-          <label><input type="radio" name="q6" value="A" /> A) animal</label>
-          <label><input type="radio" name="q6" value="B" /> B) plant</label>
-          <label><input type="radio" name="q6" value="C" /> C) bacterial</label>
-          <label><input type="radio" name="q6" value="D" /> D) fungi</label>
+          <p>6. Which process produces gametes?</p>
+          <label><input type="radio" name="q6" value="A" /> A) Mitosis</label>
+          <label><input type="radio" name="q6" value="B" /> B) Meiosis</label>
+          <label><input type="radio" name="q6" value="C" /> C) Fertilisation</label>
+          <label><input type="radio" name="q6" value="D" /> D) Respiration</label>
+        </div>
+
+                <div class="question">
+          <p>7. What is the main gas exchanged in photosynthesis?</p>
+          <label><input type="radio" name="q7" value="A" /> A) Oxygen</label>
+          <label><input type="radio" name="q7" value="B" /> B) Carbon dioxide</label>
+          <label><input type="radio" name="q7" value="C" /> C) Nitrogen</label>
+          <label><input type="radio" name="q7" value="D" /> D) Hydrogen</label>
         </div>
 
         <div class="question">
-          <p>7. what cell has free floating DNA inside the cell</p>
-          <label><input type="radio" name="q7" value="A" /> A) fungi</label>
-          <label><input type="radio" name="q7" value="B" /> B) animal</label>
-          <label><input type="radio" name="q7" value="C" /> C) plant</label>
-          <label><input type="radio" name="q7" value="D" /> D) bacterial</label>
-        </div>
-
-        <div class="question">
-          <p>8. what cell doesnt contain a nucleus</p>
-          <label><input type="radio" name="q8" value="A" /> A) red blood cell</label>
-          <label><input type="radio" name="q8" value="B" /> B) white blood cell</label>
-          <label><input type="radio" name="q8" value="C" /> C) animal</label>
-          <label><input type="radio" name="q8" value="D" /> D) plant</label>
+          <p>8. Which part of the brain controls breathing and heart rate?</p>
+          <label><input type="radio" name="q8" value="A" /> A) Cerebrum</label>
+          <label><input type="radio" name="q8" value="B" /> B) Cerebellum</label>
+          <label><input type="radio" name="q8" value="C" /> C) Medulla</label>
+          <label><input type="radio" name="q8" value="D" /> D) Hypothalamus</label>
         </div>
 
         <button type="button" id="submit-btn">Check Your Score</button>
@@ -179,19 +224,24 @@
 
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
+      const html = document.documentElement;
+      html.classList.add("dark-mode-transition");
+      html.classList.toggle("dark-mode");
+      setTimeout(() => {
+        html.classList.remove("dark-mode-transition");
+      }, 1000);
     }
 
     document.getElementById("submit-btn").addEventListener("click", function () {
       const answers = {
-        q1: "C",
-        q2: "D",
-        q3: "A",
-        q4: "D",
+        q1: "B",
+        q2: "C",
+        q3: "B",
+        q4: "B",
         q5: "B",
         q6: "B",
-        q7: "D",
-        q8: "A"
+        q7: "B",
+        q8: "C"
       };
       let score = 0;
       let total = Object.keys(answers).length;
@@ -203,6 +253,8 @@
         }
       }
 
+      const percent = Math.round((score / total) * 100);
+      document.getElementById("progress").style.width = percent + "%";
       document.getElementById("result").textContent = `You scored ${score} out of ${total}`;
     });
   </script>
