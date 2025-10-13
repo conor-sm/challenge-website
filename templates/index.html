@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz-Quest Home</title>
+  <link rel="stylesheet" href="/static/faq.css">
   <style>
     html {
       transition: background 1.6s, color 1.5s;
@@ -68,7 +69,13 @@
       margin-top: 30px;
     }
 
-    .quizzes-list div {
+    .quizzes-list a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .quizzes-list a div {
       background: #ffffff;
       border-radius: 10px;
       padding: 20px;
@@ -77,23 +84,50 @@
       text-align: center;
     }
 
-    .quizzes-list div:hover {
+    .quizzes-list a div:hover {
       transform: scale(1.03);
     }
 
-    html.dark-mode .quizzes-list div {
+    html.dark-mode .quizzes-list a div {
       background: #1e1e1e;
       box-shadow: 0 0 10px rgba(0,255,0,0.4);
-    }
-
-    .quizzes-list a {
-      text-decoration: none;
-      color: inherit;
     }
 
     .quizzes-list h2 {
       margin: 0;
       font-size: 20px;
+    }
+
+    .faq-section {
+      margin-top: 60px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,225,0.458);
+    }
+
+    html.dark-mode .faq-section {
+      background: #1e1e1e;
+      box-shadow: 0 0 10px rgba(0,255,0,0.4);
+    }
+
+    .faq-section h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-section h2 {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    .faq-section p {
+      margin: 5px 0 15px;
+    }
+
+    html.dark-mode .faq-section h2,
+    html.dark-mode .faq-section p {
+      color: rgba(0, 225, 0, 0.8);
     }
   </style>
 </head>
@@ -106,14 +140,28 @@
   </div>
 
   <div class="quizzes-list">
-    <div class="quiz1"><h2><a href="math quiz.html">Maths Quiz</a></h2></div>
-    <div class="quiz2"><h2><a href="physics quiz.html">Physics Quiz</a></h2></div>
-    <div class="quiz3"><h2><a href="biolagy.html">Biology Quiz</a></h2></div>
-    <div class="quiz4"><h2><a href="quiz4.html">Quiz 4</a></h2></div>
-    <div class="quiz5"><h2><a href="quiz5.html">Quiz 5</a></h2></div>
-    <div class="quiz6"><h2><a href="quiz6.html">Quiz 6</a></h2></div>
-    <div class="quiz7"><h2><a href="quiz7.html">Quiz 7</a></h2></div>
-    <div class="quiz8"><h2><a href="quiz8.html">Quiz 8</a></h2></div>
+    <a href="math quiz.html" class="quiz1"><div><h2>Maths Quiz</h2></div></a>
+    <a href="physics quiz.html" class="quiz2"><div><h2>Physics Quiz</h2></div></a>
+    <a href="biolagy.html" class="quiz3"><div><h2>Biology Quiz</h2></div></a>
+    <a href="geography.html" class="quiz4"><div><h2>Geography Quiz</h2></div></a>
+    <a href="quiz5.html" class="quiz5"><div><h2>Quiz 5</h2></div></a>
+    <a href="quiz6.html" class="quiz6"><div><h2>Quiz 6</h2></div></a>
+    <a href="quiz7.html" class="quiz7"><div><h2>Quiz 7</h2></div></a>
+    <a href="quiz8.html" class="quiz8"><div><h2>Quiz 8</h2></div></a>
+  </div>
+
+  <div class="faq-section container">
+    <h1 id="head">FAQs</h1>
+    <div class="list">
+      <h2>Who made the website?</h2>
+      <p>Conor Smallwood and Dylan Greenwood are proud owners and creators of this website.</p>
+      <h2>Do I need to complete all the quizzes?</h2>
+      <p>Nope, you can choose any quiz you want.</p>
+      <h2>How can I check my answers?</h2>
+      <p>Just click the check answers button.</p>
+      <h2>How are my answers marked?</h2>
+      <p>Your answers are graded by a very intelligent algorithm.</p>
+    </div>
   </div>
 
   <script>
