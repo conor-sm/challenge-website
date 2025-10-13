@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>physics Quiz Year 11</title>
+  <title>Physics Quiz Year 11</title>
   <style>
+    html {
+      transition: background 1.6s, color 1.5s;
+    }
+
+    html.dark-mode-transition {
+      transition: background 2.6s, color 2.5s;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       color: #393939;
       margin: 0;
       padding: 20px;
-      transition: background 0.6s, color 0.5s;
     }
 
-    .dark-mode {
+    html.dark-mode body {
       background: #121212;
-      color: rgba(0,225,0.458);
+      color: rgba(0, 225, 0, 0.8);
     }
 
     .container {
@@ -34,18 +41,20 @@
       margin-bottom: 20px;
     }
 
-    .toggle-btn:hover {
-      background: rgba(0,225,0.458);
+    html.dark-mode .toggle-btn {
+      background: rgba(0,255,0,0.6);
+      color: #000;
     }
 
     .quiz-container {
       background: #fff;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255);
+      box-shadow: 0 0 10px rgba(0,225,0.458);
+      transition: background 1.3s ease;
     }
 
-    .dark-mode .quiz-container {
+    html.dark-mode .quiz-container {
       background: #1e1e1e;
       box-shadow: none;
     }
@@ -56,11 +65,25 @@
     }
 
     .question {
-      margin-bottom: 25px;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,225,0.458);
+      transition: background 1.3s ease;
+    }
+
+    html.dark-mode .question {
+      background: #2a2a2a;
+    }
+
+    .question:hover {
+      transform: scale(1.01);
     }
 
     .question p {
       font-weight: bold;
+      font-size: 18px;
       margin-bottom: 10px;
     }
 
@@ -68,6 +91,14 @@
       display: block;
       margin: 5px 0;
       cursor: pointer;
+    }
+
+    html.dark-mode label {
+      color: rgba(0, 225, 0, 0.8);
+    }
+
+    input[type="radio"] {
+      accent-color: rgba(0,225,0.458);
     }
 
     #submit-btn {
@@ -82,6 +113,11 @@
       cursor: pointer;
     }
 
+    html.dark-mode #submit-btn {
+      background: rgba(0,255,0,0.6);
+      color: #000;
+    }
+
     #submit-btn:hover {
       background: #218838;
     }
@@ -91,83 +127,120 @@
       font-size: 20px;
       text-align: center;
       font-weight: bold;
+      background: #e0ffe0;
+      padding: 15px;
+      border-radius: 8px;
+      color: #2c662d;
+      animation: fadeIn 1.6s ease-in-out;
     }
 
-    .question p {
-  font-size: 18px; 
-  }
+    html.dark-mode #result {
+      background: #1f3d1f;
+      color: #aaffaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #progress-bar {
+      height: 8px;
+      background: #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: rgba(0,225,0.458);
+      border-radius: 4px;
+      transition: width 1.5s ease;
+    }
+
+    html.dark-mode #progress-bar {
+      background: #333;
+    }
+
+    html.dark-mode #progress {
+      background: rgba(0,255,0.6);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
+    <div id="progress-bar"><div id="progress"></div></div>
+
     <div class="quiz-container">
-      <h2>physics Quiz Year 11</h2>
+      <h2>Physics Quiz Year 11</h2>
       <form id="quiz-form">
 
         <div class="question">
-          <p>1. which material is best for a lightning rod</p>
-          <label><input type="radio" name="q1" value="A" /> A) plastic</label>
-          <label><input type="radio" name="q1" value="B" /> B) wood</label>
-          <label><input type="radio" name="q1" value="C" /> C) metal</label>
-          <label><input type="radio" name="q1" value="D" /> D) gallium</label>
+          <p>1. Which material is best for a lightning rod?</p>
+          <label><input type="radio" name="q1" value="A" /> A) Plastic</label>
+          <label><input type="radio" name="q1" value="B" /> B) Wood</label>
+          <label><input type="radio" name="q1" value="C" /> C) Metal</label>
+          <label><input type="radio" name="q1" value="D" /> D) Gallium</label>
         </div>
 
         <div class="question">
-          <p>2. what does a charged obgect create around itself</p>
-          <label><input type="radio" name="q2" value="A" /> A) a gravitational feild</label>
-          <label><input type="radio" name="q2" value="B" /> B) a layer of thermal energy</label>
-          <label><input type="radio" name="q2" value="C" /> C) a magnetic feild</label>
-          <label><input type="radio" name="q2" value="D" /> D) a feild of charged particles</label>
+          <p>2. What does a charged object create around itself?</p>
+          <label><input type="radio" name="q2" value="A" /> A) A gravitational field</label>
+          <label><input type="radio" name="q2" value="B" /> B) A layer of thermal energy</label>
+          <label><input type="radio" name="q2" value="C" /> C) A magnetic field</label>
+          <label><input type="radio" name="q2" value="D" /> D) A field of charged particles</label>
         </div>
 
         <div class="question">
-          <p>3. what is the aproximate speed of sound through air</p>
+          <p>3. What is the approximate speed of sound through air?</p>
           <label><input type="radio" name="q3" value="A" /> A) 330 m/s</label>
           <label><input type="radio" name="q3" value="B" /> B) 300 m/s</label>
           <label><input type="radio" name="q3" value="C" /> C) 900 m/s</label>
-          <label><input type="radio" name="q3" value="D" /> D) 330 n/m</label>
+          <label><input type="radio" name="q3" value="D" /> D) 330 N/m</label>
         </div>
 
         <div class="question">
-          <p>4. what has the longer wavelength</p>
-          <label><input type="radio" name="q4" value="A" /> A) green light</label>
-          <label><input type="radio" name="q4" value="B" /> B) purple light</label>
-          <label><input type="radio" name="q4" value="C" /> C) blue light</label>
-          <label><input type="radio" name="q4" value="D" /> D) red light</label>
+          <p>4. What has the longer wavelength?</p>
+          <label><input type="radio" name="q4" value="A" /> A) Green light</label>
+          <label><input type="radio" name="q4" value="B" /> B) Purple light</label>
+          <label><input type="radio" name="q4" value="C" /> C) Blue light</label>
+          <label><input type="radio" name="q4" value="D" /> D) Red light</label>
         </div>
 
         <div class="question">
-          <p>5. radio waves create an alternating current when they are absorbed by what</p>
-          <label><input type="radio" name="q5" value="A" /> A) a battery</label>
-          <label><input type="radio" name="q5" value="B" /> B) a conductor</label>
-          <label><input type="radio" name="q5" value="C" /> C) a magnet</label>
-          <label><input type="radio" name="q5" value="D" /> D) a insulator</label>
+          <p>5. Radio waves create an alternating current when they are absorbed by what?</p>
+          <label><input type="radio" name="q5" value="A" /> A) A battery</label>
+          <label><input type="radio" name="q5" value="B" /> B) A conductor</label>
+          <label><input type="radio" name="q5" value="C" /> C) A magnet</label>
+          <label><input type="radio" name="q5" value="D" /> D) An insulator</label>
         </div>
 
         <div class="question">
           <p>6. Which part of the electromagnetic spectrum does radiation emitted by an object usually lie?</p>
-          <label><input type="radio" name="q6" value="A" /> A) visible light</label>
-          <label><input type="radio" name="q6" value="B" /> B) infared</label>
-          <label><input type="radio" name="q6" value="C" /> C) magnetic</label>
-          <label><input type="radio" name="q6" value="D" /> D) kinetic</label>
+          <label><input type="radio" name="q6" value="A" /> A) Visible light</label>
+          <label><input type="radio" name="q6" value="B" /> B) Infrared</label>
+          <label><input type="radio" name="q6" value="C" /> C) Magnetic</label>
+          <label><input type="radio" name="q6" value="D" /> D) Kinetic</label>
         </div>
 
-        <div class="question">
+                <div class="question">
           <p>7. What property of gamma radiation makes it suitable to kill bacteria?</p>
-          <label><input type="radio" name="q7" value="A" /> A) it has no charge</label>
-          <label><input type="radio" name="q7" value="B" /> B) it travels long distances</label>
-          <label><input type="radio" name="q7" value="C" /> C) it has no mass</label>
-          <label><input type="radio" name="q7" value="D" /> D) it is ionising</label>
+          <label><input type="radio" name="q7" value="A" /> A) It has no charge</label>
+          <label><input type="radio" name="q7" value="B" /> B) It travels long distances</label>
+          <label><input type="radio" name="q7" value="C" /> C) It has no mass</label>
+          <label><input type="radio" name="q7" value="D" /> D) It is ionising</label>
         </div>
 
         <div class="question">
-          <p>8. what type of radiation is used in fire alarms</p>
-          <label><input type="radio" name="q8" value="A" /> A) alpha</label>
-          <label><input type="radio" name="q8" value="B" /> B) beta</label>
-          <label><input type="radio" name="q8" value="C" /> C) gamma</label>
-          <label><input type="radio" name="q8" value="D" /> D) thermal</label>
+          <p>8. What type of radiation is used in fire alarms?</p>
+          <label><input type="radio" name="q8" value="A" /> A) Alpha</label>
+          <label><input type="radio" name="q8" value="B" /> B) Beta</label>
+          <label><input type="radio" name="q8" value="C" /> C) Gamma</label>
+          <label><input type="radio" name="q8" value="D" /> D) Thermal</label>
         </div>
 
         <button type="button" id="submit-btn">Check Your Score</button>
@@ -179,7 +252,13 @@
 
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
+      const html = document.documentElement;
+      html.classList.add("dark-mode-transition");
+      html.classList.toggle("dark-mode");
+
+      setTimeout(() => {
+        html.classList.remove("dark-mode-transition");
+      }, 1000); // 1 second longer transition
     }
 
     document.getElementById("submit-btn").addEventListener("click", function () {
@@ -203,6 +282,8 @@
         }
       }
 
+      const percent = Math.round((score / total) * 100);
+      document.getElementById("progress").style.width = percent + "%";
       document.getElementById("result").textContent = `You scored ${score} out of ${total}`;
     });
   </script>
