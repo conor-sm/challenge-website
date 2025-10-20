@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python Quiz</title>
+  <style>
+    html {
+      transition: background 1.6s, color 1.5s;
+    }
+
+    html.dark-mode-transition {
+      transition: background 2.6s, color 2.5s;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: rgb(0, 0, 0);
+      margin: 0;
+      padding: 20px;
+    }
+
+    html.dark-mode body {
+      background: #121212;
+      color: rgb(255, 212, 59);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .toggle-btn {
+      background: rgb(255, 212, 59);
+      color: rgb(0, 0, 0);
+      font-weight:bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    html.dark-mode .toggle-btn {
+      background: rgb(75, 139, 190);
+      color: rgb(0, 0, 0);
+    }
+
+    .quiz-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(255, 212, 59);
+      transition: background 1.3s ease;
+    }
+
+    html.dark-mode .quiz-container {
+      background: #1e1e1e;
+      box-shadow: none;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgb(255, 212, 59);
+      transition: background 1.3s ease;
+    }
+
+    html.dark-mode .question {
+      background: #2a2a2a;
+    }
+
+    .question:hover {
+      transform: scale(1.01);
+    }
+
+    .question p {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .question label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    html.dark-mode label {
+      color: rgb(255, 212, 59);
+    }
+
+    input[type="radio"] {
+      accent-color: rgb(75, 139, 190);
+    }
+
+    #submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background: rgb(255, 212, 59);
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    html.dark-mode #submit-btn {
+      background: rgb(75, 139, 190);
+      color: #000;
+    }
+
+    #submit-btn:hover {
+      background: rgb(75, 139, 190);
+      color:rgb(0, 0, 0)
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      background: rgb(255, 212, 59);
+      padding: 15px;
+      border-radius: 8px;
+      color: rgb(0, 0, 0);
+      animation: fadeIn 1.6s ease-in-out;
+    }
+
+    html.dark-mode #result {
+      background: rgb(255, 212, 59);
+      color: rgb(0, 0, 0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #progress-bar {
+      height: 8px;
+      background: #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: rgb(75, 139, 190);
+      border-radius: 4px;
+      transition: width 1.5s ease;
+    }
+
+    html.dark-mode #progress-bar {
+      background: #333;
+    }
+
+    html.dark-mode #progress {
+      background: rgb(75, 139, 190);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div id="progress-bar"><div id="progress"></div></div>
+
+    <div class="quiz-container">
+      <h2>Python Quiz</h2>
+      <form id="quiz-form">
+
+        <div class="question">
+          <p>1. How do you display text to the user?</p>
+          <label><input type="radio" name="q1" value="A" /> A) input("Hello World")</label>
+          <label><input type="radio" name="q1" value="B" /> B) text = "Hello World"</label>
+          <label><input type="radio" name="q1" value="C" /> C) print("Hello World")</label>
+          <label><input type="radio" name="q1" value="D" /> D) i = 128</label>
+        </div>
+
+        <div class="question">
+          <p>2. How do you add 1 to the variable num?</p>
+          <label><input type="radio" name="q2" value="A" /> A) num ++ 1</label>
+          <label><input type="radio" name="q2" value="B" /> B) num += 1</label>
+          <label><input type="radio" name="q2" value="C" /> C) num *= 1</label>
+          <label><input type="radio" name="q2" value="D" /> D) num -= 1</label>
+        </div>
+
+        <div class="question">
+          <p>3. How do you print a variable?</p>
+          <label><input type="radio" name="q3" value="A" /> A) print(Hello World = num")</label>
+          <label><input type="radio" name="q3" value="B" /> B) print(f"Hello World = {num}")</label>
+          <label><input type="radio" name="q3" value="C" /> C) input("Hello World = num")</label>
+          <label><input type="radio" name="q3" value="D" /> D) print = num</label>
+        </div>
+
+        <div class="question">
+          <p>4. What are used for conditionals?</p>
+          <label><input type="radio" name="q4" value="A" /> A) if and elif</label>
+          <label><input type="radio" name="q4" value="B" /> B) for and while</label>
+          <label><input type="radio" name="q4" value="C" /> C) num = 1</label>
+          <label><input type="radio" name="q4" value="D" /> D) string = "100"</label>
+        </div>
+
+        <div class="question">
+          <p>5. How do you make comments?</p>
+          <label><input type="radio" name="q5" value="A" /> A) #My Comment</label>
+          <label><input type="radio" name="q5" value="B" /> B) //My Comment</label>
+          <label><input type="radio" name="q5" value="C" /> C) /*My Comment</label>
+          <label><input type="radio" name="q5" value="D" /> D) My Comment</label>
+        </div>
+
+        <div class="question">
+            <p>6. What is the result of this program?</p>
+            <pre>
+            i = 0
+            while i < 101:
+                i += 1
+                print(f"i = {i}")
+            </pre>
+          <label><input type="radio" name="q6" value="A" /> A) i = 42</label>
+          <label><input type="radio" name="q6" value="B" /> B) i = 2000</label>
+          <label><input type="radio" name="q6" value="C" /> C) Print each instance of i until i reaches 100</label>
+          <label><input type="radio" name="q6" value="D" /> D) Syntax error</label>
+        </div>
+
+        <button type="button" id="submit-btn">Check Your Score</button>
+      </form>
+
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      html.classList.add("dark-mode-transition");
+      html.classList.toggle("dark-mode");
+
+      setTimeout(() => {
+        html.classList.remove("dark-mode-transition");
+      }, 1000); // 1 second longer transition
+    }
+
+    document.getElementById("submit-btn").addEventListener("click", function () {
+      const answers = {
+        q1: "C",
+        q2: "B",
+        q3: "B",
+        q4: "A",
+        q5: "A",
+        q6: "C",
+
+      };
+      let score = 0;
+      let total = Object.keys(answers).length;
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          score++;
+        }
+      }
+
+      const percent = Math.round((score / total) * 100);
+      document.getElementById("progress").style.width = percent + "%";
+      document.getElementById("result").textContent = `You scored ${score} out of ${total}`;
+    });
+  </script>
+</body>
+</html>
