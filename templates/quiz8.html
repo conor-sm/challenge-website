@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engine Parts Quiz – Non-Calculator</title>
+  <style>
+    html { transition: background 1.6s, color 1.5s; }
+    html.dark-mode-transition { transition: background 2.6s, color 2.5s; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #393939;
+      margin: 0;
+      padding: 20px;
+    }
+    html.dark-mode body {
+      background-image: url('https://usagif.com/wp-content/uploads/gif/outerspace-70.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: rgb(80, 80, 255);
+    }
+    .container { max-width: 700px; margin: auto; }
+    .toggle-btn {
+      background: rgba(0,225,0.458);
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    html.dark-mode .toggle-btn {
+      background: rgb(80, 80, 255);
+      color: #000;
+    }
+    .quiz-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,225,0.458);
+      transition: background 1.3s ease;
+    }
+    html.dark-mode .quiz-container {
+      background: #1e1e1e;
+      box-shadow: 0 0 10px rgb(80, 80, 255);
+    }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,225,0.458);
+      transition: background 1.3s ease;
+    }
+    html.dark-mode .question {
+      background: #2a2a2a;
+      box-shadow: 0 2px 6px rgb(80, 80, 255);
+    }
+    .question:hover { transform: scale(1.01); }
+    .question p {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    html.dark-mode label { color: rgb(80, 80, 255); }
+    input[type="radio"] { accent-color: rgba(0,225,0.458); }
+    #submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: rgba(0,225,0.458);
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    html.dark-mode #submit-btn {
+      background: rgb(80, 80, 255);
+      color: #000;
+    }
+    #submit-btn:hover { background: #218838; }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      background: #e0ffe0;
+      padding: 15px;
+      border-radius: 8px;
+      color: #2c662d;
+      animation: fadeIn 1.6s ease-in-out;
+    }
+    html.dark-mode #result {
+      background: rgb(80, 80, 255);
+      color: #b1aeff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #progress-bar {
+      height: 8px;
+      background: #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: rgba(0,225,0.458);
+      border-radius: 4px;
+      transition: width 1.5s ease;
+    }
+    html.dark-mode #progress-bar { background: #333; }
+    html.dark-mode #progress { background: rgb(80, 80, 255); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div id="progress-bar"><div id="progress"></div></div>
+    <div class="quiz-container">
+      <h2>Engine Parts Quiz – Non-Calculator</h2>
+      <form id="quiz-form">
+
+        <div class="question">
+          <p>1. What is the function of the piston in an engine?</p>
+          <label><input type="radio" name="q1" value="A" /> A) Mix fuel and air</label>
+          <label><input type="radio" name="q1" value="B" /> B) Compress exhaust gases</label>
+          <label><input type="radio" name="q1" value="C" /> C) Transfer force from combustion to crankshaft</label>
+          <label><input type="radio" name="q1" value="D" /> D) Cool the engine</label>
+        </div>
+
+        <div class="question">
+          <p>2. What part ignites the air-fuel mixture?</p>
+          <label><input type="radio" name="q2" value="A" /> A) Piston</label>
+          <label><input type="radio" name="q2" value="B" /> B) Spark plug</label>
+          <label><input type="radio" name="q2" value="C" /> C) Crankshaft</label>
+          <label><input type="radio" name="q2" value="D" /> D) Camshaft</label>
+        </div>
+
+        <div class="question">
+          <p>3. Which component converts linear piston motion into rotational motion?</p>
+          <label><input type="radio" name="q3" value="A" /> A) Flywheel</label>
+          <label><input type="radio" name="q3" value="B" /> B) Spark plug</label>
+          <label><input type="radio" name="q3" value="C" /> C) Crankshaft</label>
+          <label><input type="radio" name="q3" value="D" /> D) Cylinder head</label>
+        </div>
+
+        <div class="question">
+          <p>4. What does the camshaft control?</p>
+          <label><input type="radio" name="q4" value="A" /> A) Fuel injection timing</label>
+          <label><input type="radio" name="q4" value="B" /> B) Valve timing</label>
+          <label><input type="radio" name="q4" value="C" /> C) Spark plug voltage</label>
+          <label><input type="radio" name="q4" value="D" /> D) Oil pressure</label>
+        </div>
+
+        <div class="question">
+          <p>5. What is the role of the oil pump?</p>
+          <label><input type="radio" name="q5" value="A" /> A) Circulate coolant</label>
+          <label><input type="radio" name="q5" value="B" /> B) Pressurize fuel</label>
+          <label><input type="radio" name="q5" value="C" /> C) Lubricate engine components</label>
+          <label><input type="radio" name="q5" value="D" /> D) Control emissions</label>
+        </div>
+
+                <div class="question">
+          <p>6. What does the radiator do?</p>
+          <label><input type="radio" name="q6" value="B" /> B) Cool the engine</label>
+          <label><input type="radio" name="q6" value="A" /> A) Heat the cabin</label>
+          <label><input type="radio" name="q6" value="C" /> C) Filter oil</label>
+          <label><input type="radio" name="q6" value="D" /> D) Store fuel</label>
+        </div>
+
+        <div class="question">
+          <p>7. What is the function of the timing belt?</p>
+          <label><input type="radio" name="q7" value="A" /> A) Synchronize crankshaft and camshaft rotation</label>
+          <label><input type="radio" name="q7" value="B" /> B) Increase fuel pressure</label>
+          <label><input type="radio" name="q7" value="C" /> C) Lubricate engine parts</label>
+          <label><input type="radio" name="q7" value="D" /> D) Cool the transmission</label>
+        </div>
+
+        <div class="question">
+          <p>8. What does the cylinder head contain?</p>
+          <label><input type="radio" name="q8" value="A" /> A) Pistons</label>
+          <label><input type="radio" name="q8" value="B" /> B) Spark plugs and valves</label>
+          <label><input type="radio" name="q8" value="C" /> C) Crankshaft</label>
+          <label><input type="radio" name="q8" value="D" /> D) Oil filter</label>
+        </div>
+
+        <button type="button" id="submit-btn">Check Your Score</button>
+      </form>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      html.classList.add("dark-mode-transition");
+      html.classList.toggle("dark-mode");
+      setTimeout(() => {
+        html.classList.remove("dark-mode-transition");
+      }, 1000);
+    }
+
+    document.getElementById("submit-btn").addEventListener("click", function () {
+      const answers = {
+        q1: "C",
+        q2: "B",
+        q3: "C",
+        q4: "B",
+        q5: "C",
+        q6: "B",
+        q7: "A",
+        q8: "B"
+      };
+      let score = 0;
+      let total = Object.keys(answers).length;
+
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          score++;
+        }
+      }
+
+      const percent = Math.round((score / total) * 100);
+      document.getElementById("progress").style.width = percent + "%";
+      document.getElementById("result").textContent = `You scored ${score} out of ${total}`;
+    });
+  </script>
+</body>
+</html>
