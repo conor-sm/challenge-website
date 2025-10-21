@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz-Quest Home</title>
+  <link rel="icon" type="c:\Users\Dylan\Pictures\Logo for a website c.png" href="c:\Users\Dylan\Pictures\Logo for a website c.png">
   <style>
     html {
       transition: background 1.6s, color 1.5s;
@@ -49,7 +50,7 @@
       border-radius: 6px;
       cursor: pointer;
       z-index: 1000;
-      font-weight:bolder;
+      font-weight: bolder;
     }
 
     html.dark-mode #darkModeToggle {
@@ -62,23 +63,38 @@
       margin-bottom: 40px;
     }
 
+    .header {
+      text-align: center;
+    }
+
+    .header img.logo {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+      transition: filter 0.5s ease;
+    }
+
+    html.dark-mode .header img.logo {
+      filter: drop-shadow(0 0 8px rgb(75, 139, 190));
+    }
+
     .header h1 {
       font-size: 48px;
       margin-bottom: 10px;
-      font-weight:bolder;
-      color:rgb(75, 139, 190);
+      font-weight: bolder;
+      color: rgb(75, 139, 190);
     }
 
     .slogan h1 {
       font-size: 24px;
-      font-weight:bolder;
+      font-weight: bolder;
       color: rgb(75, 139, 190);
     }
 
     html.dark-mode .slogan h1 {
       font-size: 24px;
       color: rgb(75, 139, 190);
-      font-weight:bolder;
+      font-weight: bolder;
     }
 
     .quizzes-container {
@@ -166,7 +182,10 @@
   <button onclick="toggleDarkMode()" id="darkModeToggle">Toggle Dark Mode</button>
 
   <div class="top">
-    <div class="header"><h1>Quiz-Quest</h1></div>
+    <div class="header">
+      <img src="images/quiz-quest-logo.png" alt="Quiz Quest Logo" class="logo">
+      <h1>Quiz-Quest</h1>
+    </div>
     <div class="slogan"><h1>Level up your problem solving skills...</h1></div>
   </div>
 
@@ -201,8 +220,17 @@
   <script>
     function toggleDarkMode() {
       const html = document.documentElement;
+      const logo = document.querySelector('.logo');
       html.classList.add("dark-mode-transition");
       html.classList.toggle("dark-mode");
+
+      // Optional: swap logo for dark mode
+      if (html.classList.contains("dark-mode")) {
+        logo.src = "c:\Users\Dylan\Pictures\Logo for a website c.png";
+      } else {
+        logo.src = "c:\Users\Dylan\Pictures\Logo for a website c.png";
+      }
+
       setTimeout(() => {
         html.classList.remove("dark-mode-transition");
       }, 1000);
