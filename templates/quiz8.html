@@ -20,11 +20,11 @@
       background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
-      color: rgb(80, 80, 255);
+      color: rgb(75, 139, 190);
     }
     .container { max-width: 700px; margin: auto; }
     .toggle-btn {
-      background: rgba(0,225,0.458);
+      background: rgb(75, 139, 190);
       color: rgb(0, 0, 0);
       border: none;
       padding: 10px 20px;
@@ -33,19 +33,19 @@
       margin-bottom: 20px;
     }
     html.dark-mode .toggle-btn {
-      background: rgb(80, 80, 255);
+      background: rgb(75, 139, 190);
       color: #000;
     }
     .quiz-container {
       background: #fff;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,225,0.458);
+      box-shadow: 0 0 10px rgb(75, 139, 190);
       transition: background 1.3s ease;
     }
     html.dark-mode .quiz-container {
       background: #1e1e1e;
-      box-shadow: 0 0 10px rgb(80, 80, 255);
+      box-shadow: 0 0 10px rgb(75, 139, 190);
     }
     h2 { text-align: center; margin-bottom: 30px; }
     .question {
@@ -53,12 +53,12 @@
       border-radius: 8px;
       padding: 15px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,225,0.458);
+      box-shadow: 0 2px 6px rgb(75, 139, 190);
       transition: background 1.3s ease;
     }
     html.dark-mode .question {
       background: #2a2a2a;
-      box-shadow: 0 2px 6px rgb(80, 80, 255);
+      box-shadow: 0 2px 6px rgb(75, 139, 190);
     }
     .question:hover { transform: scale(1.01); }
     .question p {
@@ -71,24 +71,24 @@
       margin: 5px 0;
       cursor: pointer;
     }
-    html.dark-mode label { color: rgb(80, 80, 255); }
-    input[type="radio"] { accent-color: rgba(0,225,0.458); }
+    html.dark-mode label { color: rgb(75, 139, 190); }
+    input[type="radio"] { accent-color: rgb(75, 139, 190); }
     #submit-btn {
       display: block;
       width: 100%;
       padding: 12px;
       font-size: 16px;
-      background: rgba(0,225,0.458);
+      background: rgb(75, 139, 190);
       color: rgb(0, 0, 0);
       border: none;
       border-radius: 6px;
       cursor: pointer;
     }
     html.dark-mode #submit-btn {
-      background: rgb(80, 80, 255);
+      background: rgb(75, 139, 190);
       color: #000;
     }
-    #submit-btn:hover { background: #218838; }
+    #submit-btn:hover { background: rgb(75, 139, 190); }
     #result {
       margin-top: 20px;
       font-size: 20px;
@@ -97,12 +97,12 @@
       background: #e0ffe0;
       padding: 15px;
       border-radius: 8px;
-      color: #2c662d;
+      color: rgb(46, 82, 111);
       animation: fadeIn 1.6s ease-in-out;
     }
     html.dark-mode #result {
-      background: rgb(80, 80, 255);
-      color: #b1aeff;
+      background: rgb(75, 139, 190);
+      color: #ffffff;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -118,12 +118,12 @@
     #progress {
       height: 100%;
       width: 0%;
-      background: rgba(0,225,0.458);
+      background: rgb(75, 139, 190);
       border-radius: 4px;
       transition: width 1.5s ease;
     }
     html.dark-mode #progress-bar { background: #333; }
-    html.dark-mode #progress { background: rgb(80, 80, 255); }
+    html.dark-mode #progress { background: rgb(75, 139, 190); }
   </style>
 </head>
 <body>
@@ -176,8 +176,8 @@
 
                 <div class="question">
           <p>6. What does the radiator do?</p>
-          <label><input type="radio" name="q6" value="B" /> B) Cool the engine</label>
-          <label><input type="radio" name="q6" value="A" /> A) Heat the cabin</label>
+          <label><input type="radio" name="q6" value="A" /> A) Cool the engine</label>
+          <label><input type="radio" name="q6" value="B" /> B) Heat the cabin</label>
           <label><input type="radio" name="q6" value="C" /> C) Filter oil</label>
           <label><input type="radio" name="q6" value="D" /> D) Store fuel</label>
         </div>
@@ -221,7 +221,7 @@
         q3: "C",
         q4: "B",
         q5: "C",
-        q6: "B",
+        q6: "A",
         q7: "A",
         q8: "B"
       };
