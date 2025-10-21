@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz-Quest Home</title>
-  <link rel="icon" type="C:\Users\Dylan\challenge-website\data\Logo for a website c.png" href="C:\Users\Dylan\challenge-website\data\Logo for a website c.png">
+  <link rel="icon" type="image/png" href="image.png" />
   <style>
     html {
       background-image: url('https://usagif.com/wp-content/uploads/gif/outerspace-70.gif');
@@ -25,7 +25,7 @@
     }
 
     html.dark-mode body {
-      background-image: url('https://usagif.com/wp-content/uploads/gif/outerspace-70.gif'); /* Dark mode GIF */
+      background-image: url('https://usagif.com/wp-content/uploads/gif/outerspace-70.gif');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -44,7 +44,7 @@
       border-radius: 6px;
       cursor: pointer;
       z-index: 1000;
-      font-weight:bolder;
+      font-weight: bolder;
     }
 
     html.dark-mode #darkModeToggle {
@@ -88,7 +88,7 @@
     html.dark-mode .slogan h1 {
       font-size: 24px;
       color: rgb(75, 139, 190);
-      font-weight:bolder;
+      font-weight: bolder;
     }
 
     .quizzes-container {
@@ -139,20 +139,21 @@
       font-size: 20px;
       font-weight: bold;
       color: rgb(75, 139, 190);
-      font-family:Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .prompt {
-      font-weight:bold;
-      font-size:24;
-      font-family:Arial, Helvetica, sans-serif
+      font-weight: bold;
+      font-size: 24px;
+      font-family: Arial, Helvetica, sans-serif;
     }
   </style>
 </head>
 <body>
+  <button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   <div class="top">
     <div class="header">
-      <img src="C:\Users\Dylan\challenge-website\data\Logo for a website c.png" alt="Quiz Quest Logo" class="logo">
+      <img src="image.png" alt="Quiz Quest Logo" class="logo">
       <h1>Quiz-Quest</h1>
     </div>
     <div class="slogan"><h1>Level up your problem solving skills...</h1></div>
