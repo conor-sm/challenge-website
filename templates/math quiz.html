@@ -38,21 +38,23 @@
       border-radius: 6px;
       cursor: pointer;
       margin-bottom: 20px;
+      font-weight:bolder;
     }
     html.dark-mode .toggle-btn {
       background: rgb(75, 139, 190);
       color: #000;
+      font-weight:bolder;
     }
     .quiz-container {
       background: #fff;
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,225,0.458);
+      box-shadow: 0 0 10px rgb(75, 139, 190);
       transition: background 1.3s ease;
     }
     html.dark-mode .quiz-container {
       background: #1e1e1e;
-      box-shadow: 0 0 10px rgb(80, 80, 255);
+      box-shadow: 0 0 10px rgb(75, 139, 190);
     }
     h2 {
       text-align: center;
@@ -63,12 +65,12 @@
       border-radius: 8px;
       padding: 15px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,225,0.458);
+      box-shadow: 0 2px 6px rgb(75, 139, 190);
       transition: background 1.3s ease;
     }
     html.dark-mode .question {
       background: #2a2a2a;
-      box-shadow: 0 2px 6px rgb(80, 80, 255);
+      box-shadow: 0 2px 6px rgb(75, 139, 190);
     }
     .question:hover {
       transform: scale(1.01);
@@ -84,43 +86,42 @@
       cursor: pointer;
     }
     html.dark-mode label {
-      color: rgb(80, 80, 255);
+      color: rgb(75, 139, 190);
     }
     input[type="radio"] {
-      accent-color: rgba(0,225,0.458);
+      accent-color: rgb(75, 139, 190);
     }
     #submit-btn {
       display: block;
       width: 100%;
       padding: 12px;
       font-size: 16px;
-      background: rgba(0,225,0.458);
+      background: rgb(75, 139, 190);
       color: rgb(0, 0, 0);
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      font-weight:bolder;
     }
     html.dark-mode #submit-btn {
-      background: rgb(80, 80, 255);
+      background: rgb(75, 139, 190);
       color: #000;
     }
-    #submit-btn:hover {
-      background: #218838;
-    }
+    
     #result {
       margin-top: 20px;
       font-size: 20px;
       text-align: center;
       font-weight: bold;
-      background: #e0ffe0;
+      background: rgb(75, 139, 190);
       padding: 15px;
       border-radius: 8px;
-      color: #2c662d;
+      color: rgb(0, 0, 0);
       animation: fadeIn 1.6s ease-in-out;
     }
     html.dark-mode #result {
-      background: rgb(80, 80, 255);
-      color: #afc0fd;
+      background: rgb(75, 139, 190);
+      color: rgb(75, 139, 190)s;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -136,7 +137,7 @@
     #progress {
       height: 100%;
       width: 0%;
-      background: rgba(0,225,0.458);
+      background: rgb(80, 80, 255);
       border-radius: 4px;
       transition: width 1.5s ease;
     }
