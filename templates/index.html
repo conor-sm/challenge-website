@@ -24,34 +24,6 @@
       align-items: center;
     }
 
-    html.dark-mode body {
-      background-image: url('https://usagif.com/wp-content/uploads/gif/outerspace-70.gif');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      color: rgb(75, 139, 190);
-    }
-
-    #darkModeToggle {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: rgb(75, 139, 190);
-      color: rgb(0, 0, 0);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 1000;
-      font-weight: bolder;
-    }
-
-    html.dark-mode #darkModeToggle {
-      background: rgb(75, 139, 190);
-      color: #000;
-    }
-
     .top {
       text-align: center;
       margin-bottom: 40px;
@@ -66,9 +38,6 @@
       height: auto;
       margin-bottom: 10px;
       transition: filter 0.5s ease;
-    }
-
-    html.dark-mode .header img.logo {
       filter: drop-shadow(0 0 8px rgb(75, 139, 190));
     }
 
@@ -85,10 +54,10 @@
       color: rgb(75, 139, 190);
     }
 
-    html.dark-mode .slogan h1 {
+    .prompt {
+      font-weight: bold;
       font-size: 24px;
-      color: rgb(75, 139, 190);
-      font-weight: bolder;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .quizzes-container {
@@ -141,16 +110,9 @@
       color: rgb(75, 139, 190);
       font-family: Arial, Helvetica, sans-serif;
     }
-
-    .prompt {
-      font-weight: bold;
-      font-size: 24px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
   </style>
 </head>
 <body>
-  <button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   <div class="top">
     <div class="header">
       <img src="image.png" alt="Quiz Quest Logo" class="logo">
@@ -172,16 +134,5 @@
       <a href="quiz9.html"><div><h2>JavaScript</h2></div></a>
     </div>
   </div>
-
-  <script>
-    function toggleDarkMode() {
-      const html = document.documentElement;
-      html.classList.add("dark-mode-transition");
-      html.classList.toggle("dark-mode");
-      setTimeout(() => {
-        html.classList.remove("dark-mode-transition");
-      }, 1000);
-    }
-  </script>
 </body>
 </html>
